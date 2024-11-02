@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+    <link rel="stylesheet" href="style/all.min.css">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body class="bg-dark-subtle">
+    <div class="container py-5 d-flex justify-content-center align-items-center flex-column">
+        <h1 class="text-center my-4 py-4 m-auto position-relative fst-italic">Bookmarker</h1>
+
+        <div class="bookmark w-100 py-4 mt-5 flex-column d-flex justify-content-center align-items-center gap-4">
+            <h2 class="pb-4"><i class="fa-solid fa-bookmark pe-2"></i>Bookmark your favorite sites <i class="fa-solid fa-bookmark pe-2"></i>
+            </h2>
+            <div class="site-name w-100 d-flex flex-column justify-content-center">
+                <label for="sitename" class="pb-2 fw-bolder"><i class="fa-solid fa-book-bookmark pe-2"></i>Site Name</label>
+                <input type="text" class="form-control" placeholder="Site-Name" id="sitename">
+            </div>
+            <div class="site-url w-100 d-flex flex-column justify-content-center">
+                <label for="siteurl" class="pb-2 fw-bolder"><i class="fa-solid fa-link pe-2"></i>Site URL</label>
+                <input type="text" class="form-control" placeholder="Ex: https://www.website.com/" id="siteurl">
+            </div>
+            <button class="btn btn-danger px-3" id="subbtn">Submit</button>
+        </div>
+        <table class="table mt-4 text-center bg-light">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Website Name</th>
+                    <th>Visit</th>
+                    <th>Delete</th>
+                </tr>
+
+            </thead>
+            <tbody id="tablebody" >
+                
+            
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

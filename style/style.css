@@ -1,0 +1,29 @@
+h1::before{
+    content:'';
+    background-color: rgb(151, 59, 151);
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    border-radius: 5px;
+    z-index: -1;
+    transition: height 0.5s;
+}
+
+h1:hover::before{
+    height: 30%;
+}
+
+.bookmark{
+    border-width: 2px 0px 2px 0px;
+    border-style: dotted;
+    border-color: black;
+
+}
+
+h2{
+    background-image: linear-gradient(to right, #76277a, #f581d4);
+    background-clip: text;
+    -webkit-text-fill-color: transparent
+}
