@@ -2,6 +2,7 @@ var sitename = document.getElementById('sitename');
 var siteurl = document.getElementById('siteurl');
 var submitbtn = document.getElementById('subbtn');
 var tablebody = document.getElementById('tablebody');
+var errormsg = document.getElementById('errorMsg')
 var siteArr=[]
 
 if(localStorage.getItem('sites') != null){
@@ -19,17 +20,19 @@ submitbtn.onclick = function(){
 
 
 function addsite(){
-    if(validateUrl()==true){
+    if(validateUrl()==false){
+        siteurl.style.borderColor="red";
+        errormsg.classList.replace('d-none','d-block');
     
+        
+    }
+    else{
         var sites = {
             name: sitename.value,
             link: siteurl.value,
         }
         siteArr.push(sites)
         localStorage.setItem('sites',JSON.stringify(siteArr))
-    }
-    else{
-        alert("invalid")
     }
     
 }
@@ -40,8 +43,8 @@ function display(arr){
         box += `<tr>
             <td>${i+1}</td>
             <td>${arr[i].name}</td>
-            <td><a href="${arr[i].link}" target="_blank"><button class="btn btn-success"><i class="fa-solid fa-eye"></i>Visit</button></a></td>
-            <td><button onclick="deleteSite(${i})" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
+            <td><a href="${arr[i].link}" target="_blank"><button class="btn btn-success"><i class="fa-solid fa-eye pe-2"></i>Visit</button></a></td>
+            <td><button onclick="deleteSite(${i})" class="btn btn-danger"><i class="fa-solid fa-trash-can pe-2"></i>Delete</button></td>
         </tr>`;
     }
     tablebody.innerHTML=box
@@ -54,7 +57,7 @@ function clearForm(){
 }
 
 function validateUrl(){
-    var regex= /^(https?:\/\/www\.)[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+(\/[^\s]*)?$/
+    var regex= /^https:\/\/(www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/\S*)?$/;
     return regex.test(siteurl.value);
 }
 
